@@ -12,7 +12,7 @@ You can calculate the resistors to use on this [Voltage Divider Calculator](http
 
 ## Dependencies
 
-The script uses [catt](https://github.com/skorokithakis/catt).
+This project uses [Python 3](https://www.python.org/download/releases/3.0/) and [catt](https://github.com/skorokithakis/catt) to cast a music file to supported Chromecast devices on a local network.
 
 ## Configuration
 
