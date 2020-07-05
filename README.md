@@ -22,7 +22,11 @@ The shell script executes the catt command to cast an mp3 file to one or more Go
 
 Note, the shell script kills the process after executing the command, as catt requires manual intervention when using the command line (you need to press ctrl+c when executing the command manually).
 
-The Python script listens for a voltage drop on a defined GPIO pin then runs the command `nohup sh doorbell.sh &` to run the shell script in the background.
+The Python script listens for a voltage drop on a defined GPIO pin then executes the following command to run the shell script in the background:
+
+```
+nohup sh /path-to-file/doorbell.sh &
+```
 
 ## Logging
 
@@ -33,12 +37,12 @@ Output is logged to a 'nohup.out' folder along with a date time stamp each time 
 Run the following command to start monitoring a doorbell voltage drop on the designated Raspberry Pi GPIO pin.
 
 ```
-python doorbell.py
+python doorbell.py &
 ```
 
-It's recommended that you add the following line to your crontab file (edit using `crontab -e` command) to ensure that the script runs on startup. Alternatively, review [other options](https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/) for running scripts on startup.
+It's recommended that you add the following line to auto-run the script on startup. Run the command `sudo nano /etc/profile` and add the line below to the end of the file. Alternatively, review [other options](https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/) for running scripts on startup.
 
 ```
-@reboot sudo python /home/pi/Scripts/doorbell.py
+sudo python /home/pi/Scripts/doorbell.py &
 ```
 
