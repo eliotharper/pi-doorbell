@@ -36,9 +36,9 @@ Run the following command to start monitoring a doorbell voltage drop on the des
 python doorbell.py
 ```
 
-It's recommended that you add the following line to your crontab file (edit using `crontab -e` command) to ensure that the script runs on startup.
+It's recommended that you add the following line to your crontab file (edit using `crontab -e` command) to ensure that the script runs on startup. Alternatively, review [other options](https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/) for running scripts on startup.
 
 ```
-@reboot cd /home/pi/Scripts && python doorbell.py
+@reboot sudo python /home/pi/Scripts/doorbell.py
 ```
 
