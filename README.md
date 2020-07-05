@@ -4,23 +4,23 @@ A Python to cast doorbell music to home Google devices.
 
 ## Setup
 
-Wire doorbell to ground and available GPIO pins on Raspberry Pi. Ensure that you don't apply a voltage of >3.3v and 0.5mA to the pins, otherwise you will damage the GPIO board. I made a voltage divider circuit as per below
+Wire ground and available GPIO pin to DC voltage points on the doorbell. Ensure that you don't apply a voltage of >3.3v and 0.5mA to the pins, otherwise you will damage the GPIO board. I recommend making a voltage divider circuit as per below:
 
 ![Voltage Divider](http://www.learningaboutelectronics.com/images/Voltage-divider-circuit.png)
 
-You can calculate the resistors to use on this [Voltage Divider Calculator](http://www.learningaboutelectronics.com/Articles/Voltage-divider-calculator.php)
+You can calculate the resistors to use on this [Voltage Divider Calculator](http://www.learningaboutelectronics.com/Articles/Voltage-divider-calculator.php).
 
 ## Dependencies
 
-This application uses [catt](https://github.com/skorokithakis/catt).
+The script uses [catt](https://github.com/skorokithakis/catt).
 
 ## Configuration
 
-The app uses two scripts, a shell script and python script. Both are located in the Scripts directory. 
+Two scripts are used; a shell script and python script. Both are located in the [scripts](https://github.com/eliotharper/pi-doorbell/tree/master/scripts) directory. 
 
-The shell script executes the catt command to cast an mp3 sound file to one or more devices.
+The shell script executes the catt command to cast an mp3 file to one or more Google devices.
 
-Note, the shell script kills the process after executing the command, as catt requires manual intervention (need to press ctrl+c when executing the command manually).
+Note, the shell script kills the process after executing the command, as catt requires manual intervention when using the command line (you need to press ctrl+c when executing the command manually).
 
 The Python script listens for a voltage drop on a defined GPIO pin then runs the command `nohup sh doorbell.sh &` to run the shell script in the background.
 
@@ -36,7 +36,7 @@ Run the following command to start monitoring a doorbell voltage drop on the des
 python doorbell.py
 ```
 
-It's recommended that you add the following line to crontab (edit using `crontab -e` command) to ensure that the script runs on startup.
+It's recommended that you add the following line to your crontab file (edit using `crontab -e` command) to ensure that the script runs on startup.
 
 ```
 @reboot cd /home/pi/Scripts && python doorbell.py
