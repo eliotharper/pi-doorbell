@@ -43,6 +43,6 @@ python doorbell.py &
 It's recommended that you add the following line to auto-run the script on startup. Run the command `sudo nano /etc/profile` and add the line below to the end of the file. Alternatively, review [other options](https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/) for running scripts on startup.
 
 ```
-sudo python /home/pi/Scripts/doorbell.py &
+sudo nohup python /home/pi/Scripts/doorbell.py &
 ```
 
