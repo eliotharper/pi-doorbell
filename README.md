@@ -1,6 +1,6 @@
 # Pi Doorbell
 
-A Python to cast doorbell music to home Google devices.
+A Python script to play music to home supported Chromecast devices when an analog doorbell button is pressed.
 
 ## Setup
 
